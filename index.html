@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .container {
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+        .spinner {
+            border: 4px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top: 4px solid white;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .fallback {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        .number {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>📱 Contact Information</h2>
+        <div class="number">01272193922</div>
+        <div class="spinner"></div>
+        <p>Redirecting you...</p>
+        <div class="fallback">
+            If you're not redirected automatically, 
+            <a href="#" id="manualLink" style="color: #fff; text-decoration: underline;">click here</a>
+        </div>
+    </div>
+
+    <script>
+        // 🔧 CONFIGURATION - CHANGE THIS TO UPDATE YOUR REDIRECT
+        // ================================================================
+        // Currently showing the phone number, but you can change this to any URL
+        
+        const REDIRECT_DESTINATION = "tel:01272193922"; // For phone number
+        // const REDIRECT_DESTINATION = "https://yourwebsite.com"; // Uncomment and edit for website
+        // const REDIRECT_DESTINATION = "https://wa.me/01272193922"; // For WhatsApp
+        // const REDIRECT_DESTINATION = "mailto:your@email.com"; // For email
+        
+        const REDIRECT_DELAY = 1000; // 2 seconds delay (2000ms)
+        // ================================================================
+
+        // Set the manual link
+        document.getElementById('manualLink').href = REDIRECT_DESTINATION;
+
+        // Auto redirect after delay
+        setTimeout(function() {
+            window.location.href = REDIRECT_DESTINATION;
+        }, REDIRECT_DELAY);
+    </script>
+</body>
+</html>
